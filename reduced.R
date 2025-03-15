@@ -1,4 +1,4 @@
-setwd("C:/Users/User/Desktop/USP/Projeto/sheets")
+setwd("path")
 library(umap)
 library(Rtsne)
 library(ggplot2)
@@ -17,6 +17,7 @@ sum(is.na(data_numerical_scaled))
 
 data_numerical_scaled[is.na(data_numerical_scaled)] <- 0
 
+#UMAP
 umap_result <- umap(data_numerical_scaled)
 
 umap_df <- data.frame(UMAP1 = umap_result$layout[,1], UMAP2 = umap_result$layout[,2], Family = data$Family)
@@ -29,46 +30,10 @@ ggplot(umap_df, aes(x = UMAP1, y = UMAP2, color = Family)) +
        y = "UMAP Dimensão 2")
 
 
-library(plotly) 
-library(stats) 
-data(iris) 
-X <- subset(iris, select = -c(Species)) 
-axis = list(showline=FALSE, 
-            zeroline=FALSE, 
-            gridcolor='#ffff', 
-            ticklen=4)
-fig <- iris %>%  
-  plot_ly()  %>%  
-  add_trace(  
-    type = 'splom',  
-    dimensions = list( 
-      list(label = 'sepal_width',values=~Sepal.Width),  
-      list(label = 'sepal_length',values=~Sepal.Length),  
-      list(label ='petal_width',values=~Petal.Width),  
-      list(label = 'petal_length',values=~Petal.Length)),  
-    color = ~Species, colors = c('#636EFA','#EF553B','#00CC96') 
-  ) 
-fig <- fig %>% 
-  layout( 
-    legend=list(title=list(text='species')), 
-    hovermode='closest', 
-    dragmode= 'select', 
-    plot_bgcolor='rgba(240,240,240,0.95)', 
-    xaxis=list(domain=NULL, showline=F, zeroline=F, gridcolor='#ffff', ticklen=4), 
-    yaxis=list(domain=NULL, showline=F, zeroline=F, gridcolor='#ffff', ticklen=4), 
-    xaxis2=axis, 
-    xaxis3=axis, 
-    xaxis4=axis, 
-    yaxis2=axis, 
-    yaxis3=axis, 
-    yaxis4=axis 
-  ) 
-fig
-
 library(tsne)
 library(plotly)
-data("iris")
 
+#t-SNE com plotly (interativo)
 features <- subset(data, select = -c(Family)) 
 
 set.seed(0)
@@ -89,6 +54,7 @@ tsne_result <- tsne(data_numerical_scaled, initial_dims = 2)
 tsne_df <- data.frame(tsne_result)
 tsne_df$Family <- data$Family  # Adicionando a coluna da família
 
+#tSNE com ggplot2
 # Criando o gráfico
 p <- ggplot(tsne_df, aes(x = X1, y = X2, color = Family)) +
   geom_point(alpha = 0.7) +  # Ajuste de transparência para melhor visualização
