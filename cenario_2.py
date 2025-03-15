@@ -237,7 +237,7 @@ for i in tqdm(range(n_bootstrap), desc="Bootstrapping"):
     X_resampled, y_resampled = resample(X_train, y_train, random_state=random_state + i)
 
     # Treinar o modelo na amostra bootstrap
-    rf = RandomForestClassifier(max_depth = 3, min_samples_leaf = 1, min_samples_split = 2, n_estimators = 100, max_features = "sqrt", random_state =  random_state + 1)
+    rf = RandomForestClassifier(random_state = random_state + 1)
     rf.fit(X_resampled, y_resampled)
 
     # Avaliar o modelo no conjunto de teste original
