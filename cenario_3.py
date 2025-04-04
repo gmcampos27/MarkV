@@ -248,3 +248,87 @@ plt.title("")
 plt.legend(title="Classificador")
 plt.savefig("Boxplot.svg", transparent=False, dpi=900, format="svg")
 plt.savefig("Boxplot.png", dpi=300, format="png")
+
+import scipy.stats as stats
+
+# Shapiro-Wilk test
+stats.shapiro(metricas['value'])
+
+# Histogram and KDE plot
+fig, ax = plt.subplots(figsize=(6, 4))
+metricas.plot(kind='hist', density=True, ax=ax, alpha=0.7) 
+metricas.plot(kind='kde', ax=ax)
+plt.title("Distribuição das Métricas")
+plt.xlabel("Valor da Métrica")
+plt.ylabel("Densidade")
+plt.show()
+
+# QQ-plots
+fig, ax = plt.subplots(figsize=(14, 4), ncols=2)
+
+# Selecting only the numeric columns for QQ plots
+numeric_cols = metricas.select_dtypes(include=np.number).columns
+
+# Plotting for the first numeric column (if available)
+if len(numeric_cols) > 0:
+    sm.qqplot(metricas[numeric_cols[0]], line='s', ax=ax[0])
+    ax[0].set_title(f"QQ-plot {numeric_cols[0]}")
+
+# Plotting for the second numeric column (if available)
+if len(numeric_cols) > 1:
+    sm.qqplot(metricas[numeric_cols[1]], line='s', ax=ax[1])
+    ax[1].set_title(f"QQ-plot {numeric_cols[1]}")
+
+plt.tight_layout()
+plt.show()
+
+import pandas as pd
+import scipy.stats as stats
+from statsmodels.formula.api import ols
+import statsmodels.api as sm
+
+# Filtrar para uma métrica específica, por exemplo, "Accuracy"
+metrica_escolhida = "Acurácia"
+df_anova = metricas[metricas["metrica"] == metrica_escolhida]
+
+# Rodar o modelo ANOVA
+modelo = ols("value ~ C(Classifier)", data=df_anova).fit()
+anova_tabela = sm.stats.anova_lm(modelo, typ=2)
+
+print(anova_tabela)
+
+metrica_escolhida = "Recall"
+df_anova = metricas[metricas["metrica"] == metrica_escolhida]
+
+# Rodar o modelo ANOVA
+modelo = ols("value ~ C(Classifier)", data=df_anova).fit()
+anova_tabela = sm.stats.anova_lm(modelo, typ=2)
+
+print(anova_tabela)
+
+metrica_escolhida = "MCC"
+df_anova = metricas[metricas["metrica"] == metrica_escolhida]
+
+# Rodar o modelo ANOVA
+modelo = ols("value ~ C(Classifier)", data=df_anova).fit()
+anova_tabela = sm.stats.anova_lm(modelo, typ=2)
+
+print(anova_tabela)
+
+metrica_escolhida = "F1"
+df_anova = metricas[metricas["metrica"] == metrica_escolhida]
+
+# Rodar o modelo ANOVA
+modelo = ols("value ~ C(Classifier)", data=df_anova).fit()
+anova_tabela = sm.stats.anova_lm(modelo, typ=2)
+
+print(anova_tabela)
+
+metrica_escolhida = "Precisão"
+df_anova = metricas[metricas["metrica"] == metrica_escolhida]
+
+# Rodar o modelo ANOVA
+modelo = ols("value ~ C(Classifier)", data=df_anova).fit()
+anova_tabela = sm.stats.anova_lm(modelo, typ=2)
+
+print(anova_tabela)
