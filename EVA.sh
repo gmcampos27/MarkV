@@ -3,11 +3,11 @@
 echo "Começando fastp"
 
 # Diretório contendo os arquivos de entrada
-input_dir="/mnt/project2/svetoslav_slavov/metaviromaHumano/rawData/Transplante_v3"
+input_dir="/rawData/Transplante"
 echo "Diretório de entrada: $input_dir"
 
 # Diretório para salvar os arquivos de saída
-output_dir="/mnt/project2/svetoslav_slavov/metaviromaHumano/QC/Transplante_v3"
+output_dir="QC/Transplante"
 echo "Diretório de saída: $output_dir"
 
 # Loop para processar cada par de arquivos de entrada
