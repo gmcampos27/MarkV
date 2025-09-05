@@ -5,14 +5,14 @@
 echo "Iniciando anotação dos scaffolds acima de 500bp..."
 
 # Caminhos para os bancos
-vfam_db="/mnt/project2/svetoslav_slavov/metaviromaHumano/database/vFam-A_2014.hmm"
-pfam_db="/mnt/project2/svetoslav_slavov/metaviromaHumano/database/Pfam-A.hmm"
+vfam_db="database/vFam-A_2014.hmm"
+pfam_db="database/Pfam-A.hmm"
 
 # Output centralizado para domtblout
 mkdir -p hmmer_vfam hmmer_pfam
 
 # Loop em cada diretório
-for dir in /mnt/project2/svetoslav_slavov/metaviromaHumano/spades/spades_output_NF*/; do
+for dir in spades/spades_output*/; do
     echo "🔄 Processando $dir"
 
     fasta="$dir/scaffolds_above_500.fasta"
