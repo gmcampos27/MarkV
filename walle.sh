@@ -3,13 +3,13 @@
 echo "Extração Matéria Escura - Kraken2 e Bracken"
 echo "Olá, eu sou o Wall-e e estou aqui para ajudar você!"
 
-dir="/mnt/project2/svetoslav_slavov/metaviromaHumano/noHost/Unmapped/NF/"
+dir="noHost/Unmapped/"
 echo "Diretório de entrada: $dir"
 
-dirout="/mnt/project2/svetoslav_slavov/metaviromaHumano/metadata/NF_Amostras/"
+dirout="metadata/"
 echo "Diretório de saída: $dirout"
 
-dirdb="/storage/zuleika/volume3/database/kraken2.2/"
+dirdb="database/kraken2.2/"
 
 for FILE in ${dir}*.R1.fastq.gz; do
     if [ -f "$FILE" ]; then
