@@ -3,11 +3,11 @@
 echo "RiboDetector started at $(date)"
 
 #Diretório Arquivos de entrada
-dirin="/mnt/project2/svetoslav_slavov/metaviromaHumano/noHost/Unmapped/Transplante_v3/"
+dirin="/noHost/Unmapped/Transplante/"
 echo "Diretório de entrada: $dirin"
 
 #Diretório Arquivos de saída
-dirout="/mnt/project2/svetoslav_slavov/metaviromaHumano/noHost/Unmapped/Transplante_v3/NonrRNA/"
+dirout="noHost/Unmapped/Transplante/NonrRNA/"
 echo "Diretório de saída: $dirout"
 
 for file in $dirin*_R1.fastq.gz; do
