@@ -2,14 +2,14 @@
 set -euxo pipefail
 
 # ========= CONFIG =========
-BASE="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/Vic_nano/"
-HPgV_REF="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/genomes/GBvC/ref.mmi"               # referência
-CMV_REF="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/genomes/CMV/ref.mmi"
-HIV_REF="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/genomes/hiv/ref.mni"
-HAdVC_REF="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/genomes/HAdVC/ref.mmi"
+BASE="/Nanopore/"
+HPgV_REF="/genomes/GBvC/ref.mmi"               # referência
+CMV_REF="/genomes/CMV/ref.mmi"
+HIV_REF="genomes/hiv/ref.mni"
+HAdVC_REF="genomes/HAdVC/ref.mmi"
 THREADS=24
-DATABASE="/storage/zuleika/volume3/database/kraken2.2/"               # banco de dados
-HOST_REF="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/genomes/Homo_sapiens/GRCh38_latest_genomic.fna"
+DATABASE="database/kraken2.2/"               # banco de dados
+HOST_REF="genomes/Homo_sapiens/GRCh38_latest_genomic.fna"
 TAXID_HPgV=54290
 TAXID_CMV=12345
 TAXID_HIV=67890
