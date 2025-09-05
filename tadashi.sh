@@ -7,10 +7,10 @@ echo "Programa inciado em $(date)"
 echo "Prepare-se para a análise do metaviroma!"
 
 # ========= CONFIG =========
-dirdb="/storage/zuleika/volume3/database/kraken2.2/"  
+dirdb="database/kraken2.2/"  
 THREADS=24
-dir="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/noHost/Unmapped/Transplante_v3/NonrRNA/"
-dirout="/storage/vital/volume2/svetoslav_slavov/metaviromaHumano/metadata/Transplante_v3/"
+dir="/Unmapped/Transplante/NonrRNA/"
+dirout="/metadata/Transplante/"
 echo "Arquivos finais em: $dirout"
 # ==========================
 
