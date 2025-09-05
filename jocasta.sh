@@ -3,7 +3,7 @@
 # Loop em todos os diretórios do SPAdes
 # Assumindo que os diretórios seguem o padrão "spades_output_NF*"
 echo "Iniciando processamento dos diretórios SPAdes..."
-for dir in /mnt/project2/svetoslav_slavov/metaviromaHumano/spades/spades_output_NF*/; do
+for dir in spades/spades_output_NF*/; do
     echo "Processando $dir"
     
     fasta="$dir/scaffolds.fasta"
