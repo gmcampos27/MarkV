@@ -2,10 +2,10 @@
 
 echo "Montagem de contigs"
 
-dir="/mnt/project2/svetoslav_slavov/metaviromaHumano/metadata/NF_Amostras/"
+dir="/metadata/"
 echo "Diretório de entrada: $dir"
 
-dirout="/mnt/project2/svetoslav_slavov/metaviromaHumano/noHost/Paired/"
+dirout="/noHost/Paired/"
 echo "Diretório de saída: $dirout"
 
 echo executando o trimmomatic para montagem de contigs
@@ -22,7 +22,7 @@ for FILE in ${dir}*_unclassified_1.fastq; do
         echo "Saída: $dirout/${name}_contigs.fasta"
 
         echo "Montando contigs do arquivo: $name"
-        #trimmomatic PE -phred33 "$dir/${name}_1.fastq" "$dir/${name}_2.fastq" "$dirout/${name}_R1_paired.fq.gz" "$dirout/${name}_unpaired_R1.fq.gz" "$dirout/${name}_R2_paired.fq.gz" "$dirout/${name}_unpaired_R2.fq.gz" -threads 10 SLIDINGWINDOW:4:15
+        trimmomatic PE -phred33 "$dir/${name}_1.fastq" "$dir/${name}_2.fastq" "$dirout/${name}_R1_paired.fq.gz" "$dirout/${name}_unpaired_R1.fq.gz" "$dirout/${name}_R2_paired.fq.gz" "$dirout/${name}_unpaired_R2.fq.gz" -threads 10 SLIDINGWINDOW:4:15
     fi 
 done
 
