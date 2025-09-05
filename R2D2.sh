@@ -4,15 +4,15 @@ echo "Starting BWA"
 
 #Diretório arquivos entrada (fastq)
 
-dir="/mnt/project2/svetoslav_slavov/metaviromaHumano/QC/Transplante_v3"
+dir="/QC/Transplante"
 echo "Diretório de entrada: $dir"
 
 #Diretório de saída Não Mapeado (bam)
-dirout="/mnt/project2/svetoslav_slavov/metaviromaHumano/noHost/Unmapped/Transplante_v3"
+dirout="/noHost/Unmapped/Transplante"
 echo "Diretório de saída: $dirout"
 
 #Diretório do genoma de referência
-ref="/mnt/project2/svetoslav_slavov/metaviromaHumano/genomes/Homo_sapiens/GRCh38_latest_genomic.fna"
+ref="genomes/Homo_sapiens/GRCh38_latest_genomic.fna"
 
 for file in $dir/*_R1_trimmed.fastq.gz; do 
     if [ -f "$file" ]; then
