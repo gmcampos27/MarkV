@@ -8,7 +8,7 @@ library(ggsci)
 
 #Diretório
 
-setwd("path")
+setwd("C:/Users/User/Desktop/USP/Projeto/")
 
 # Dados
 dados <- read.csv("Family_Metadata.csv")
